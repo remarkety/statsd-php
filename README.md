@@ -2,8 +2,10 @@
 
 A PHP client library for the statistics daemon ([statsd](https://github.com/etsy/statsd)) intended to send metrics from PHP applications.
 
-[![Build Status](https://github.com/domnikl/statsd-php/workflows/Build%20statsd-php/badge.svg)](https://github.com/domnikl/statsd-php/actions)
-[![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](https://paypal.me/DominikLiebler)
+[![Build Status](https://github.com/slickdeals/statsd-php/workflows/Build%20statsd-php/badge.svg)](https://github.com/slickdeals/statsd-php/actions)
+
+Originally a fork of https://github.com/domnikl/statsd-php and original author Dominik Liebler. The Slickdeals team has
+taken over the project.
 
 ## Installation
 
@@ -12,7 +14,7 @@ The best way to install statsd-php is to use Composer and add the following to y
 ```javascript
 {
     "require": {
-        "domnikl/statsd": "~3.0"
+        "slickdeals/statsd": "~3.0"
     }
 }
 ```
@@ -103,4 +105,4 @@ to use `Domnikl\Statsd\Connection\InMemory` connection class, that will collect 
 ## Authors
 
 Original author: Dominik Liebler <liebler.dominik@gmail.com>
-Several other [contributors](https://github.com/domnikl/statsd-php/graphs/contributors) - Thank you!
+Several other [contributors](https://github.com/slickdeals/statsd-php/graphs/contributors) - Thank you!
