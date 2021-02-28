@@ -296,7 +296,7 @@ class Client
      */
     public function setNamespace(string $namespace): void
     {
-        $this->namespace = (string) $namespace;
+        $this->namespace = $namespace;
     }
 
     /**

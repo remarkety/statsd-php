@@ -9,7 +9,8 @@ use Domnikl\Statsd\Connection;
 class File implements Connection
 {
     /**
-     * @var null|resource|closed-resource
+     * @psalm-suppress PossiblyInvalidArgument
+     * @var null|resource
      */
     private $handle;
 
@@ -60,6 +61,7 @@ class File implements Connection
     public function close(): void
     {
         if (is_resource($this->handle)) {
+            /** @psalm-suppress InvalidPropertyAssignmentValue */
             fclose($this->handle);
         }
 
