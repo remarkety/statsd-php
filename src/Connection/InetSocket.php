@@ -64,7 +64,7 @@ abstract class InetSocket implements Connection
         $this->host = $host;
         $this->port = $port;
         $this->persistent = $persistent;
-        $this->maxPayloadSize = (int) $mtu -
+        $this->maxPayloadSize = $mtu -
             self::IP_HEADER_SIZE -
             $this->getProtocolHeaderSize() -
             strlen(self::LINE_DELIMITER);
@@ -144,7 +144,9 @@ abstract class InetSocket implements Connection
         if ($this->allowFragmentation()) {
             $message = join(self::LINE_DELIMITER, $messages) . self::LINE_DELIMITER;
 
-            return str_split($message, $this->maxPayloadSize);
+            $result = str_split($message, $this->maxPayloadSize);
+
+            return $result ?: [];
         }
 
         $delimiterLen = strlen(self::LINE_DELIMITER);
