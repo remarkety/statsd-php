@@ -1,5 +1,13 @@
 # Changelog domnikl/statsd-php
 
+## 3.1.0 (2021-06-04)
+
+### Feat
+
+- add *Aware interface and trait for service injection
+
+## 3.0.2 (2020-01-03)
+
 ## 3.0.1
 
 * fixed #67 UDPSocket handle DNS change
