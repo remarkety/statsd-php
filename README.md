@@ -102,6 +102,33 @@ To disable sending any metrics to the statsd server, you can use the `Domnikl\St
  class instead of the default socket abstraction. This may be incredibly useful for feature flags. Another options is
 to use `Domnikl\Statsd\Connection\InMemory` connection class, that will collect your messages but won't actually send them.
 
+## StatsdAwareInterface
+
+You can use the `StatsdAwareInterface` and `StatsdAwareTrait` in order to have dependency injection containers (such as
+Symfony's DI component) automatically detect the StatsdAwareInterface and inject the client into your service.
+
+### Symfony
+
+```yaml
+# config/services.yaml
+services:
+  _instanceof:
+    Domnikl\Statsd\StatsdAwareInterface:
+      calls:
+        - [setStatsdClient, ['@Domnikl\Statsd\Client']]
+
+  Domnikl\Statsd\Client:
+    arguments:
+      $connection: '@app.statsd_connection'
+      $namespace: '<namespace>'
+
+  app.statsd_connection:
+    class: Domnikl\Statsd\Connection\UdpSocket
+    arguments:
+      $host: '%env(STATSD_HOST)%'
+      $port: '%env(STATSD_PORT)%'
+```
+
 ## Authors
 
 Original author: Dominik Liebler <liebler.dominik@gmail.com>
