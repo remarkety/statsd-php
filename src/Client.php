@@ -248,7 +248,7 @@ class Client
      * @param float $sampleRate
      * @param array $tags
      */
-    private function send(string $key, $value, string $type, float $sampleRate, array $tags = []): void
+    protected function send(string $key, $value, string $type, float $sampleRate, array $tags = []): void
     {
         // override sampleRate if all metrics should be sampled
         if ($this->sampleRateAllMetrics < 1) {
