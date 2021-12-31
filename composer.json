@@ -1,5 +1,5 @@
 {
-    "name": "slickdeals/statsd",
+    "name": "remarkety/statsd",
     "type": "library",
     "description": "a PHP client for statsd",
     "keywords": [
